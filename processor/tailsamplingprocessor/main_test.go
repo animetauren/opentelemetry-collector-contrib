@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:processor/tailsamplingprocessor/main_test.go
 package tailsamplingprocessor
+=======
+package obsreport // import "go.opentelemetry.io/collector/obsreport"
+>>>>>>> upstream/main:obsreport/obsreport.go
 
 import (
 	"testing"
@@ -20,6 +24,19 @@ import (
 	"go.uber.org/goleak"
 )
 
+<<<<<<< HEAD:processor/tailsamplingprocessor/main_test.go
 func TestMain(m *testing.M) {
 	goleak.VerifyTestMain(m, goleak.IgnoreTopFunction("go.opencensus.io/stats/view.(*worker).start"))
+=======
+const (
+	scopeName = "go.opentelemetry.io/collector/obsreport"
+
+	nameSep = "/"
+)
+
+func recordError(span trace.Span, err error) {
+	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+	}
+>>>>>>> upstream/main:obsreport/obsreport.go
 }

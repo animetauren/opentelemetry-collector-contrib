@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:internal/aws/k8s/k8sclient/replicaset_info.go
 package k8sclient // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/k8s/k8sclient"
 
 type replicaSetInfo struct {
@@ -22,4 +23,17 @@ type replicaSetInfo struct {
 type replicaSetOwner struct {
 	kind string
 	name string
+=======
+package iruntime // import "go.opentelemetry.io/collector/internal/iruntime"
+
+import (
+	"github.com/shirou/gopsutil/v3/mem"
+)
+
+// readMemInfo returns the total memory
+// supports in linux, darwin and windows
+func readMemInfo() (uint64, error) {
+	vmStat, err := mem.VirtualMemory()
+	return vmStat.Total, err
+>>>>>>> upstream/main:internal/iruntime/mem_info.go
 }

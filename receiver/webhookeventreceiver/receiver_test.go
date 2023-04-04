@@ -12,4 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/webhookeventreceiver/receiver_test.go
 package webhookeventreceiver
+=======
+// Package scraperhelper provides utilities for scrapers.
+package scraperhelper // import "go.opentelemetry.io/collector/receiver/scraperhelper"
+>>>>>>> upstream/main:receiver/scraperhelper/doc.go

@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   CodeQL-Build:
     runs-on: ubuntu-latest
@@ -14,6 +18,7 @@ jobs:
       CODEQL_EXTRACTOR_GO_BUILD_TRACING: 'on'
 
     steps:
+<<<<<<< HEAD
       - name: Collect Workflow Telemetry
         if: always()
         uses: runforesight/foresight-workflow-kit-action@v1
@@ -27,6 +32,15 @@ jobs:
         uses: actions/setup-go@v3
         with:
           go-version: ~1.19.7
+=======
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: ~1.19.6
+>>>>>>> upstream/main
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
@@ -34,6 +48,7 @@ jobs:
         with:
           languages: go
 
+<<<<<<< HEAD
       - name: Build Artifact
         run: |
           make otelcontribcol
@@ -42,3 +57,10 @@ jobs:
         uses: github/codeql-action/analyze@v2
         timeout-minutes: 60
 
+=======
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+>>>>>>> upstream/main

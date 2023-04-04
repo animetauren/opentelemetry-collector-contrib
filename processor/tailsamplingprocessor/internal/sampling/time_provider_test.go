@@ -12,7 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:processor/tailsamplingprocessor/internal/sampling/time_provider_test.go
 package sampling
+=======
+//go:build !linux
+// +build !linux
+
+package iruntime
+>>>>>>> upstream/main:internal/iruntime/total_memory_other_test.go
 
 import (
 	"testing"

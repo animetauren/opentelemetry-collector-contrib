@@ -19,6 +19,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+<<<<<<< HEAD:receiver/sqlqueryreceiver/factory_test.go
 	"go.opentelemetry.io/collector/consumer/consumertest"
 	"go.opentelemetry.io/collector/receiver/receivertest"
 )
@@ -32,4 +33,19 @@ func TestNewFactory(t *testing.T) {
 		consumertest.NewNop(),
 	)
 	require.NoError(t, err)
+=======
+
+	"go.opentelemetry.io/collector/pdata/plog"
+	"go.opentelemetry.io/collector/pdata/pmetric"
+	"go.opentelemetry.io/collector/pdata/ptrace"
+)
+
+func TestNop(t *testing.T) {
+	nc := NewNop()
+	require.NotNil(t, nc)
+	assert.NotPanics(t, nc.unexported)
+	assert.NoError(t, nc.ConsumeLogs(context.Background(), plog.NewLogs()))
+	assert.NoError(t, nc.ConsumeMetrics(context.Background(), pmetric.NewMetrics()))
+	assert.NoError(t, nc.ConsumeTraces(context.Background(), ptrace.NewTraces()))
+>>>>>>> upstream/main:consumer/consumertest/nop_test.go
 }

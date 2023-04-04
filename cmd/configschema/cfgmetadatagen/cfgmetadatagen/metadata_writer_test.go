@@ -18,9 +18,13 @@
 package cfgmetadatagen
 
 import (
+<<<<<<< HEAD:cmd/configschema/cfgmetadatagen/cfgmetadatagen/metadata_writer_test.go
 	"io"
 	"os"
 	"path/filepath"
+=======
+	"errors"
+>>>>>>> upstream/main:receiver/scrapererror/partialscrapeerror_test.go
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,6 +33,7 @@ import (
 	"github.com/open-telemetry/opentelemetry-collector-contrib/cmd/configschema"
 )
 
+<<<<<<< HEAD:cmd/configschema/cfgmetadatagen/cfgmetadatagen/metadata_writer_test.go
 func TestMetadataFileWriter(t *testing.T) {
 	tempDir := t.TempDir()
 	w := newMetadataFileWriter(tempDir)
@@ -39,4 +44,20 @@ func TestMetadataFileWriter(t *testing.T) {
 	bytes, err := io.ReadAll(file)
 	require.NoError(t, err)
 	assert.EqualValues(t, "hello", bytes)
+=======
+func TestPartialScrapeError(t *testing.T) {
+	failed := 2
+	err := errors.New("some error")
+	partialErr := NewPartialScrapeError(err, failed)
+	assert.Equal(t, err.Error(), partialErr.Error())
+	assert.Equal(t, failed, partialErr.Failed)
+}
+
+func TestIsPartialScrapeError(t *testing.T) {
+	err := errors.New("testError")
+	require.False(t, IsPartialScrapeError(err))
+
+	err = NewPartialScrapeError(err, 2)
+	require.True(t, IsPartialScrapeError(err))
+>>>>>>> upstream/main:receiver/scrapererror/partialscrapeerror_test.go
 }

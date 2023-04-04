@@ -15,7 +15,11 @@
 //go:build tools
 // +build tools
 
+<<<<<<< HEAD
 package tools // import "github.com/open-telemetry/opentelemetry-collector-contrib/internal/tools"
+=======
+package tools // import "go.opentelemetry.io/collector/internal/tools"
+>>>>>>> upstream/main
 
 // This file follows the recommendation at
 // https://github.com/golang/go/wiki/Modules#how-can-i-track-tool-dependencies-for-a-module
@@ -28,6 +32,7 @@ import (
 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
 	_ "github.com/google/addlicense"
 	_ "github.com/jcchavezs/porto/cmd/porto"
+<<<<<<< HEAD
 	_ "github.com/jstemmer/go-junit-report"
 	_ "go.opentelemetry.io/build-tools/checkdoc"
 	_ "go.opentelemetry.io/build-tools/chloggen"
@@ -35,6 +40,17 @@ import (
 	_ "go.opentelemetry.io/build-tools/issuegenerator"
 	_ "go.opentelemetry.io/build-tools/multimod"
 	_ "go.opentelemetry.io/collector/cmd/builder"
+=======
+	_ "github.com/ory/go-acc"
+	_ "github.com/pavius/impi/cmd/impi"
+	_ "github.com/wadey/gocovmerge"
+	_ "go.opentelemetry.io/build-tools/checkdoc"
+	_ "go.opentelemetry.io/build-tools/chloggen"
+	_ "go.opentelemetry.io/build-tools/crosslink"
+	_ "go.opentelemetry.io/build-tools/multimod"
+	_ "go.opentelemetry.io/build-tools/semconvgen"
+	_ "golang.org/x/exp/cmd/apidiff"
+>>>>>>> upstream/main
 	_ "golang.org/x/tools/cmd/goimports"
 	_ "golang.org/x/vuln/cmd/govulncheck"
 )

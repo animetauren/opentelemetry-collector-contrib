@@ -7,72 +7,121 @@ updates:
     schedule:
       interval: "weekly"
       day: "wednesday"
+<<<<<<< HEAD
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "wednesday"
+=======
+>>>>>>> upstream/main
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/cmd/configschema"
+=======
+    directory: "/cmd/builder"
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
-    directory: "/cmd/mdatagen"
+    directory: "/cmd/otelcorecol"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+    directory: "/component"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+  - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/cmd/otelcontribcol"
+=======
+    directory: "/confmap"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/cmd/oteltestbedcol"
+=======
+    directory: "/connector/forwardconnector"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/cmd/telemetrygen"
+=======
+    directory: "/consumer"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/confmap/provider/s3provider"
+=======
+    directory: "/exporter"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/connector/countconnector"
+=======
+    directory: "/exporter/loggingexporter"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/connector/servicegraphconnector"
+=======
+    directory: "/exporter/otlpexporter"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/connector/spanmetricsconnector"
+=======
+    directory: "/exporter/otlphttpexporter"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/examples/demo/client"
+=======
+    directory: "/extension/ballastextension"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/examples/demo/server"
+=======
+    directory: "/extension/zpagesextension"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/exporter/alibabacloudlogserviceexporter"
     schedule:
       interval: "weekly"
@@ -474,6 +523,9 @@ updates:
       day: "wednesday"
   - package-ecosystem: "gomod"
     directory: "/internal/splunk"
+=======
+    directory: "/featuregate"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
@@ -483,31 +535,52 @@ updates:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/pkg/batchperresourceattr"
+=======
+    directory: "/pdata"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/pkg/batchpersignal"
+=======
+    directory: "/processor/batchprocessor"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/pkg/experimentalmetricmetadata"
+=======
+    directory: "/processor/memorylimiterprocessor"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/pkg/ottl"
+=======
+    directory: "/receiver"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/pkg/pdatatest"
+=======
+    directory: "/receiver/otlpreceiver"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"
   - package-ecosystem: "gomod"
+<<<<<<< HEAD
     directory: "/pkg/pdatautil"
     schedule:
       interval: "weekly"
@@ -1099,6 +1172,9 @@ updates:
       day: "wednesday"
   - package-ecosystem: "gomod"
     directory: "/receiver/zipkinreceiver"
+=======
+    directory: "/semconv"
+>>>>>>> upstream/main
     schedule:
       interval: "weekly"
       day: "wednesday"

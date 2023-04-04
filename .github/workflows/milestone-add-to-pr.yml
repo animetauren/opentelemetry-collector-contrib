@@ -1,6 +1,10 @@
 # This action adds the "next release" milestone to a pull request
+<<<<<<< HEAD
 # when it is merged. The "next release" milestone is managed
 # by the "Project: Rotate Milestone" action.
+=======
+# when it is merged
+>>>>>>> upstream/main
 
 name: 'Project: Add PR to Milestone'
 on:

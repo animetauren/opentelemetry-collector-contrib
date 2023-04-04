@@ -16,6 +16,7 @@ package coralogixexporter
 
 import (
 	"context"
+	"path/filepath"
 	"testing"
 	"time"
 
@@ -28,8 +29,12 @@ import (
 	"go.opentelemetry.io/collector/config/configtls"
 	"go.opentelemetry.io/collector/exporter/exporterhelper"
 	"go.opentelemetry.io/collector/exporter/exportertest"
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
+=======
+	"go.opentelemetry.io/collector/internal/testutil"
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 )
 
 func TestCreateDefaultConfig(t *testing.T) {
@@ -42,6 +47,10 @@ func TestCreateDefaultConfig(t *testing.T) {
 	assert.Equal(t, ocfg.RetrySettings, exporterhelper.NewDefaultRetrySettings())
 	assert.Equal(t, ocfg.QueueSettings, exporterhelper.NewDefaultQueueSettings())
 	assert.Equal(t, ocfg.TimeoutSettings, exporterhelper.NewDefaultTimeoutSettings())
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
+=======
+	assert.Equal(t, ocfg.Compression, configcompression.Gzip)
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 }
 
 func TestCreateMetricsExporter(t *testing.T) {
@@ -75,9 +84,24 @@ func TestCreateTracesExporter(t *testing.T) {
 		mustFailOnStart  bool
 	}{
 		{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 			name: "UseSecure",
 			config: Config{
 				Traces: configgrpc.GRPCClientSettings{
+=======
+			name: "NoEndpoint",
+			config: Config{
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+					Endpoint: "",
+				},
+			},
+			mustFailOnCreate: true,
+		},
+		{
+			name: "UseSecure",
+			config: Config{
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint: endpoint,
 					TLSSetting: configtls.TLSClientSetting{
 						Insecure: false,
@@ -88,7 +112,11 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "Keepalive",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint: endpoint,
 					Keepalive: &configgrpc.KeepaliveClientConfig{
 						Time:                30 * time.Second,
@@ -101,7 +129,11 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "NoneCompression",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint:    endpoint,
 					Compression: "none",
 				},
@@ -110,7 +142,11 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "GzipCompression",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint:    endpoint,
 					Compression: configcompression.Gzip,
 				},
@@ -119,7 +155,11 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "SnappyCompression",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint:    endpoint,
 					Compression: configcompression.Snappy,
 				},
@@ -128,7 +168,11 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "ZstdCompression",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint:    endpoint,
 					Compression: configcompression.Zstd,
 				},
@@ -137,7 +181,11 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "Headers",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint: endpoint,
 					Headers: map[string]configopaque.String{
 						"hdr1": "val1",
@@ -149,15 +197,38 @@ func TestCreateTracesExporter(t *testing.T) {
 		{
 			name: "NumConsumers",
 			config: Config{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
 				Traces: configgrpc.GRPCClientSettings{
+=======
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint: endpoint,
+				},
+			},
+		},
+		{
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
+			name: "CertPemFileError",
+			config: Config{
+				Traces: configgrpc.GRPCClientSettings{
+=======
+			name: "CaCert",
+			config: Config{
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+					Endpoint: endpoint,
+					TLSSetting: configtls.TLSClientSetting{
+						TLSSetting: configtls.TLSSetting{
+							CAFile: filepath.Join("testdata", "test_cert.pem"),
+						},
+					},
 				},
 			},
 		},
 		{
 			name: "CertPemFileError",
 			config: Config{
-				Traces: configgrpc.GRPCClientSettings{
+				GRPCClientSettings: configgrpc.GRPCClientSettings{
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go
 					Endpoint: endpoint,
 					TLSSetting: configtls.TLSClientSetting{
 						TLSSetting: configtls.TLSSetting{
@@ -184,9 +255,10 @@ func TestCreateTracesExporter(t *testing.T) {
 			err = consumer.Start(context.Background(), componenttest.NewNopHost())
 			if tt.mustFailOnStart {
 				assert.Error(t, err)
-				return
+			} else {
+				assert.NoError(t, err)
 			}
-			assert.NoError(t, err)
+			// Shutdown is called even when Start fails
 			err = consumer.Shutdown(context.Background())
 			if err != nil {
 				// Since the endpoint of OTLP exporter doesn't actually exist,
@@ -196,3 +268,17 @@ func TestCreateTracesExporter(t *testing.T) {
 		})
 	}
 }
+<<<<<<< HEAD:exporter/coralogixexporter/factory_test.go
+=======
+
+func TestCreateLogsExporter(t *testing.T) {
+	factory := NewFactory()
+	cfg := factory.CreateDefaultConfig().(*Config)
+	cfg.GRPCClientSettings.Endpoint = testutil.GetAvailableLocalAddress(t)
+
+	set := exportertest.NewNopCreateSettings()
+	oexp, err := factory.CreateLogsExporter(context.Background(), set, cfg)
+	require.Nil(t, err)
+	require.NotNil(t, oexp)
+}
+>>>>>>> upstream/main:exporter/otlpexporter/factory_test.go

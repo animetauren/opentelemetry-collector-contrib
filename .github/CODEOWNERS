@@ -18,6 +18,7 @@
 # important for validation steps
 #
 
+<<<<<<< HEAD
 * @open-telemetry/collector-contrib-approvers
 
 cmd/configschema/                                        @open-telemetry/collector-contrib-approvers @mx-psi @dmitryax @pmcollins
@@ -242,3 +243,6 @@ receiver/zookeeperreceiver/                              @open-telemetry/collect
 testbed/                                                 @open-telemetry/collector-contrib-approvers @open-telemetry/collector-approvers
 testbed/mockdatareceivers/mockawsxrayreceiver/           @open-telemetry/collector-contrib-approvers @willarmiros
 testbed/mockdatasenders/mockdatadogagentexporter/        @open-telemetry/collector-contrib-approvers @boostchicken
+=======
+* @open-telemetry/collector-approvers
+>>>>>>> upstream/main

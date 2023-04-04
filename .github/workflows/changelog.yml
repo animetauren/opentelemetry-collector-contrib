@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 # This action requires that any PR targeting the main branch should add a
 # yaml file to the ./.chloggen/ directory. If a CHANGELOG entry is not required,
 # or if performing maintance on the Changelog, add either \"[chore]\" to the title of
 # the pull request or add the \"Skip Changelog\" label to disable this action.
+=======
+# This action requires that any PR targeting the main branch should touch at
+# least one CHANGELOG file. If a CHANGELOG entry is not required, add the "Skip
+# Changelog" label to disable this action.
+>>>>>>> upstream/main
 
 name: changelog
 
 on:
   pull_request:
+<<<<<<< HEAD
     types: [opened, synchronize, reopened, labeled, unlabeled]
     branches:
       - main
@@ -16,6 +23,12 @@ env:
   # Cache downloads for this workflow consistently run in under 1 minute
   SEGMENT_DOWNLOAD_TIMEOUT_MINS: 5
 
+=======
+    types: [opened, ready_for_review, synchronize, reopened, labeled, unlabeled]
+    branches:
+      - main
+
+>>>>>>> upstream/main
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
@@ -31,9 +44,15 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Go
+<<<<<<< HEAD
         uses: actions/setup-go@v3
         with:
           go-version: ~1.19.7
+=======
+        uses: actions/setup-go@v4
+        with:
+          go-version: ~1.19.6
+>>>>>>> upstream/main
       - name: Cache Go
         id: go-cache
         uses: actions/cache@v3

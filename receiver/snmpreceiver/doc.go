@@ -12,4 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/snmpreceiver/doc.go
 package snmpreceiver // import "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/snmpreceiver"
+=======
+// Package scrapererror provides custom error types for scrapers.
+package scrapererror // import "go.opentelemetry.io/collector/receiver/scrapererror"
+>>>>>>> upstream/main:receiver/scrapererror/doc.go

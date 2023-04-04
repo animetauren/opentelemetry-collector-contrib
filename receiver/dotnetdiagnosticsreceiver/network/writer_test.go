@@ -22,6 +22,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+<<<<<<< HEAD:receiver/dotnetdiagnosticsreceiver/network/writer_test.go
 )
 
 func TestWriteUTF16String(t *testing.T) {
@@ -40,4 +41,20 @@ func TestWriteUTF16String(t *testing.T) {
 		p = append(p, v)
 	}
 	require.Equal(t, msg, string(utf16.Decode(p)))
+=======
+
+	"go.opentelemetry.io/collector/pdata/plog"
+	"go.opentelemetry.io/collector/pdata/pmetric"
+	"go.opentelemetry.io/collector/pdata/ptrace"
+)
+
+func TestErr(t *testing.T) {
+	err := errors.New("my error")
+	ec := NewErr(err)
+	require.NotNil(t, ec)
+	assert.NotPanics(t, ec.unexported)
+	assert.Equal(t, err, ec.ConsumeLogs(context.Background(), plog.NewLogs()))
+	assert.Equal(t, err, ec.ConsumeMetrics(context.Background(), pmetric.NewMetrics()))
+	assert.Equal(t, err, ec.ConsumeTraces(context.Background(), ptrace.NewTraces()))
+>>>>>>> upstream/main:consumer/consumertest/err_test.go
 }

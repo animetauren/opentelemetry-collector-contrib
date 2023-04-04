@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/hostmetricsreceiver/internal/scraper/pagingscraper/pagefile_others.go
 //go:build !windows && !linux
 // +build !windows,!linux
 
@@ -23,6 +24,29 @@ func getPageFileStats() ([]*pageFileStats, error) {
 	vmem, err := mem.VirtualMemory()
 	if err != nil {
 		return nil, err
+=======
+package component // import "go.opentelemetry.io/collector/component"
+
+// BuildInfo is the information that is logged at the application start and
+// passed into each component. This information can be overridden in custom build.
+type BuildInfo struct {
+	// Command is the executable file name, e.g. "otelcol".
+	Command string
+
+	// Description is the full name of the collector, e.g. "OpenTelemetry Collector".
+	Description string
+
+	// Version string.
+	Version string
+}
+
+// NewDefaultBuildInfo returns a default BuildInfo.
+func NewDefaultBuildInfo() BuildInfo {
+	return BuildInfo{
+		Command:     "otelcol",
+		Description: "OpenTelemetry Collector",
+		Version:     "latest",
+>>>>>>> upstream/main:component/build_info.go
 	}
 	return []*pageFileStats{{
 		deviceName:  "", // We do not support per-device swap

@@ -12,4 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/webhookeventreceiver/config_test.go
 package webhookeventreceiver // import "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/genericwebhookreceiver"
+=======
+// Package confighttp defines the configuration settings
+// for creating an HTTP client and server.
+package confighttp // import "go.opentelemetry.io/collector/config/confighttp"
+>>>>>>> upstream/main:config/confighttp/doc.go

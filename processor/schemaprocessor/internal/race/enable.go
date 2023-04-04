@@ -12,9 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:processor/schemaprocessor/internal/race/enable.go
 //go:build race
 // +build race
 
 package race // import "github.com/open-telemetry/opentelemetry-collector-contrib/processor/schemaprocessor/internal/race"
+=======
+//go:build !linux
+// +build !linux
+
+package iruntime // import "go.opentelemetry.io/collector/internal/iruntime"
+>>>>>>> upstream/main:internal/iruntime/total_memory_other.go
 
 const Enabled = true

@@ -12,10 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/skywalkingreceiver/config.go
 package skywalkingreceiver // import "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/skywalkingreceiver"
+=======
+package otlpreceiver // import "go.opentelemetry.io/collector/receiver/otlpreceiver"
+>>>>>>> upstream/main:receiver/otlpreceiver/config.go
 
 import (
-	"fmt"
+	"errors"
 
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/config/configgrpc"
@@ -24,8 +28,14 @@ import (
 )
 
 const (
+<<<<<<< HEAD:receiver/skywalkingreceiver/config.go
 	// The config field id to load the protocol map from
 	protocolsFieldName = "protocols"
+=======
+	// Protocol values.
+	protoGRPC = "protocols::grpc"
+	protoHTTP = "protocols::http"
+>>>>>>> upstream/main:receiver/otlpreceiver/config.go
 )
 
 // Protocols is the configuration for the supported protocols.
@@ -36,6 +46,10 @@ type Protocols struct {
 
 // Config defines configuration for skywalking receiver.
 type Config struct {
+<<<<<<< HEAD:receiver/skywalkingreceiver/config.go
+=======
+	// Protocols is the configuration for the supported protocols, currently gRPC and HTTP (Proto and JSON).
+>>>>>>> upstream/main:receiver/otlpreceiver/config.go
 	Protocols `mapstructure:"protocols"`
 }
 
@@ -45,7 +59,11 @@ var _ confmap.Unmarshaler = (*Config)(nil)
 // Validate checks the receiver configuration is valid
 func (cfg *Config) Validate() error {
 	if cfg.GRPC == nil && cfg.HTTP == nil {
+<<<<<<< HEAD:receiver/skywalkingreceiver/config.go
 		return fmt.Errorf("must specify at least one protocol when using the Skywalking receiver")
+=======
+		return errors.New("must specify at least one protocol when using the OTLP receiver")
+>>>>>>> upstream/main:receiver/otlpreceiver/config.go
 	}
 
 	if cfg.GRPC != nil {
@@ -64,6 +82,7 @@ func (cfg *Config) Validate() error {
 	return nil
 }
 
+<<<<<<< HEAD:receiver/skywalkingreceiver/config.go
 // Unmarshal a config.Parser into the config struct.
 func (cfg *Config) Unmarshal(componentParser *confmap.Conf) error {
 	if componentParser == nil || len(componentParser.AllKeys()) == 0 {
@@ -73,20 +92,30 @@ func (cfg *Config) Unmarshal(componentParser *confmap.Conf) error {
 	// UnmarshalExact will not set struct properties to nil even if no key is provided,
 	// so set the protocol structs to nil where the keys were omitted.
 	err := componentParser.Unmarshal(cfg, confmap.WithErrorUnused())
+=======
+// Unmarshal a confmap.Conf into the config struct.
+func (cfg *Config) Unmarshal(conf *confmap.Conf) error {
+	// first load the config normally
+	err := conf.Unmarshal(cfg, confmap.WithErrorUnused())
+>>>>>>> upstream/main:receiver/otlpreceiver/config.go
 	if err != nil {
 		return err
 	}
 
+<<<<<<< HEAD:receiver/skywalkingreceiver/config.go
 	protocols, err := componentParser.Sub(protocolsFieldName)
 	if err != nil {
 		return err
 	}
 
 	if !protocols.IsSet(protoGRPC) {
+=======
+	if !conf.IsSet(protoGRPC) {
+>>>>>>> upstream/main:receiver/otlpreceiver/config.go
 		cfg.GRPC = nil
 	}
 
-	if !protocols.IsSet(protoHTTP) {
+	if !conf.IsSet(protoHTTP) {
 		cfg.HTTP = nil
 	}
 

@@ -20,17 +20,31 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+<<<<<<< HEAD
+=======
+	"github.com/stretchr/testify/require"
+
+>>>>>>> upstream/main
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/component/componenttest"
 )
 
 var id = component.NewID("test")
+<<<<<<< HEAD
+=======
+
+type baseComponent struct {
+	component.StartFunc
+	component.ShutdownFunc
+}
+>>>>>>> upstream/main
 
 func TestNewSharedComponents(t *testing.T) {
-	comps := NewSharedComponents()
+	comps := NewSharedComponents[component.ID, *baseComponent]()
 	assert.Len(t, comps.comps, 0)
 }
 
+<<<<<<< HEAD
 type mockComponent struct {
 	component.StartFunc
 	component.ShutdownFunc
@@ -39,24 +53,46 @@ type mockComponent struct {
 func TestSharedComponents_GetOrAdd(t *testing.T) {
 	nop := &mockComponent{}
 	createNop := func() component.Component { return nop }
+=======
+func TestNewSharedComponentsCreateError(t *testing.T) {
+	comps := NewSharedComponents[component.ID, *baseComponent]()
+	assert.Len(t, comps.comps, 0)
+	myErr := errors.New("my error")
+	_, err := comps.GetOrAdd(id, func() (*baseComponent, error) { return nil, myErr })
+	assert.ErrorIs(t, err, myErr)
+	assert.Len(t, comps.comps, 0)
+}
+>>>>>>> upstream/main
 
-	comps := NewSharedComponents()
-	got := comps.GetOrAdd(id, createNop)
+func TestSharedComponentsGetOrAdd(t *testing.T) {
+	nop := &baseComponent{}
+
+	comps := NewSharedComponents[component.ID, *baseComponent]()
+	got, err := comps.GetOrAdd(id, func() (*baseComponent, error) { return nop, nil })
+	require.NoError(t, err)
 	assert.Len(t, comps.comps, 1)
 	assert.Same(t, nop, got.Unwrap())
-	assert.Same(t, got, comps.GetOrAdd(id, createNop))
+	gotSecond, err := comps.GetOrAdd(id, func() (*baseComponent, error) { panic("should not be called") })
+	require.NoError(t, err)
+	assert.Same(t, got, gotSecond)
 
 	// Shutdown nop will remove
 	assert.NoError(t, got.Shutdown(context.Background()))
 	assert.Len(t, comps.comps, 0)
-	assert.NotSame(t, got, comps.GetOrAdd(id, createNop))
+	gotThird, err := comps.GetOrAdd(id, func() (*baseComponent, error) { return nop, nil })
+	require.NoError(t, err)
+	assert.NotSame(t, got, gotThird)
 }
 
 func TestSharedComponent(t *testing.T) {
 	wantErr := errors.New("my error")
 	calledStart := 0
 	calledStop := 0
+<<<<<<< HEAD
 	comp := &mockComponent{
+=======
+	comp := &baseComponent{
+>>>>>>> upstream/main
 		StartFunc: func(ctx context.Context, host component.Host) error {
 			calledStart++
 			return wantErr
@@ -64,12 +100,17 @@ func TestSharedComponent(t *testing.T) {
 		ShutdownFunc: func(ctx context.Context) error {
 			calledStop++
 			return wantErr
+<<<<<<< HEAD
 		},
 	}
 	createComp := func() component.Component { return comp }
+=======
+		}}
+>>>>>>> upstream/main
 
-	comps := NewSharedComponents()
-	got := comps.GetOrAdd(id, createComp)
+	comps := NewSharedComponents[component.ID, *baseComponent]()
+	got, err := comps.GetOrAdd(id, func() (*baseComponent, error) { return comp, nil })
+	require.NoError(t, err)
 	assert.Equal(t, wantErr, got.Start(context.Background(), componenttest.NewNopHost()))
 	assert.Equal(t, 1, calledStart)
 	// Second time is not called anymore.

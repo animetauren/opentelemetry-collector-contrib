@@ -22,6 +22,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component/componenttest"
 	"go.opentelemetry.io/collector/extension/extensiontest"
+<<<<<<< HEAD:extension/observer/k8sobserver/factory_test.go
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/k8sconfig"
 )
@@ -40,4 +41,23 @@ func TestFactory_CreateExtension(t *testing.T) {
 	ext, err := factory.CreateExtension(context.Background(), extensiontest.NewNopCreateSettings(), cfg)
 	require.Error(t, err)
 	require.Nil(t, ext)
+=======
+)
+
+func TestFactory_CreateDefaultConfig(t *testing.T) {
+	cfg := createDefaultConfig()
+	assert.Equal(t, &Config{}, cfg)
+
+	assert.NoError(t, componenttest.CheckConfigStruct(cfg))
+	ext, err := createExtension(context.Background(), extensiontest.NewNopCreateSettings(), cfg)
+	require.NoError(t, err)
+	require.NotNil(t, ext)
+}
+
+func TestFactory_CreateExtension(t *testing.T) {
+	cfg := createDefaultConfig().(*Config)
+	ext, err := createExtension(context.Background(), extensiontest.NewNopCreateSettings(), cfg)
+	require.NoError(t, err)
+	require.NotNil(t, ext)
+>>>>>>> upstream/main:extension/ballastextension/factory_test.go
 }

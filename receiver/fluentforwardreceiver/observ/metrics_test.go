@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/fluentforwardreceiver/observ/metrics_test.go
 package observ
+=======
+package configgrpc // import "go.opentelemetry.io/collector/config/configgrpc"
+>>>>>>> upstream/main:config/configgrpc/gzip.go
 
 import (
 	"testing"

@@ -12,7 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/haproxyreceiver/doc.go
 //go:generate mdatagen metadata.yaml
+=======
+// Package obsmetrics defines the obsreport metrics for each components
+// all the metrics is in OpenCensus format which will be replaced with OTEL Metrics
+// in the future
+package obsmetrics // import "go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+>>>>>>> upstream/main:internal/obsreportconfig/obsmetrics/obsmetrics.go
 
 // Package haproxyreceiver implements a receiver collecting metrics from HAProxy.
 package haproxyreceiver // import "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/haproxyreceiver"

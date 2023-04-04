@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:processor/deltatorateprocessor/config.go
 package deltatorateprocessor // import "github.com/open-telemetry/opentelemetry-collector-contrib/processor/deltatorateprocessor"
 
 import (
@@ -32,4 +33,23 @@ func (config *Config) Validate() error {
 		return fmt.Errorf("metric names are missing")
 	}
 	return nil
+=======
+package consumertest // import "go.opentelemetry.io/collector/consumer/consumertest"
+
+import (
+	"context"
+
+	"go.opentelemetry.io/collector/pdata/plog"
+	"go.opentelemetry.io/collector/pdata/pmetric"
+	"go.opentelemetry.io/collector/pdata/ptrace"
+)
+
+// NewNop returns a Consumer that just drops all received data and returns no error.
+func NewNop() Consumer {
+	return &baseConsumer{
+		ConsumeTracesFunc:  func(ctx context.Context, td ptrace.Traces) error { return nil },
+		ConsumeMetricsFunc: func(ctx context.Context, md pmetric.Metrics) error { return nil },
+		ConsumeLogsFunc:    func(ctx context.Context, ld plog.Logs) error { return nil },
+	}
+>>>>>>> upstream/main:consumer/consumertest/nop.go
 }

@@ -38,6 +38,7 @@ func TestCreateExporter(t *testing.T) {
 	eCfg := cfg.(*Config)
 	params := exportertest.NewNopCreateSettings()
 
+<<<<<<< HEAD:exporter/sentryexporter/factory_test.go
 	te, err := factory.CreateTracesExporter(context.Background(), params, eCfg)
 	assert.Nil(t, err)
 	assert.NotNil(t, te, "failed to create trace exporter")
@@ -45,4 +46,27 @@ func TestCreateExporter(t *testing.T) {
 	me, err := factory.CreateMetricsExporter(context.Background(), params, eCfg)
 	assert.Error(t, err)
 	assert.Nil(t, me)
+=======
+	me, err := factory.CreateMetricsExporter(context.Background(), exportertest.NewNopCreateSettings(), cfg)
+	assert.NoError(t, err)
+	assert.NotNil(t, me)
+}
+
+func TestCreateTracesExporter(t *testing.T) {
+	factory := NewFactory()
+	cfg := factory.CreateDefaultConfig()
+
+	te, err := factory.CreateTracesExporter(context.Background(), exportertest.NewNopCreateSettings(), cfg)
+	assert.NoError(t, err)
+	assert.NotNil(t, te)
+}
+
+func TestCreateLogsExporter(t *testing.T) {
+	factory := NewFactory()
+	cfg := factory.CreateDefaultConfig()
+
+	te, err := factory.CreateLogsExporter(context.Background(), exportertest.NewNopCreateSettings(), cfg)
+	assert.NoError(t, err)
+	assert.NotNil(t, te)
+>>>>>>> upstream/main:exporter/loggingexporter/factory_test.go
 }

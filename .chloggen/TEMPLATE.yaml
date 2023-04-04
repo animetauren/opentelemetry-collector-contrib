@@ -1,13 +1,21 @@
 # One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
 change_type:
 
+<<<<<<< HEAD
 # The name of the component, or a single word describing the area of concern, (e.g. filelogreceiver)
+=======
+# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+>>>>>>> upstream/main
 component:
 
 # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
 note:
 
+<<<<<<< HEAD
 # One or more tracking issues related to the change
+=======
+# One or more tracking issues or pull requests related to the change
+>>>>>>> upstream/main
 issues: []
 
 # (Optional) One or more lines of additional information to render under the primary note.

@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/hostmetricsreceiver/hostmetrics_others_test.go
 //go:build !linux
+=======
+//go:build linux
+// +build linux
+>>>>>>> upstream/main:internal/iruntime/total_memory_linux_test.go
 
 package hostmetricsreceiver
 

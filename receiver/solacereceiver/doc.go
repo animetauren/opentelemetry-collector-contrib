@@ -12,5 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/solacereceiver/doc.go
 // Package solacereceiver receives traces from Solace broker using AMQP 1.0 protocol.
 package solacereceiver // import "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/solacereceiver"
+=======
+// Package componenttest define types and functions used to help test packages
+// implementing the component package interfaces.
+package componenttest // import "go.opentelemetry.io/collector/component/componenttest"
+>>>>>>> upstream/main:component/componenttest/doc.go

@@ -12,6 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:processor/metricsgenerationprocessor/doc.go
 // package metricsgenerationprocessor implements a processor which calculates
 // a new metric from existing metrics.
 package metricsgenerationprocessor // import "github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricsgenerationprocessor"
+=======
+// Package component outlines the components used in the collector
+// and provides a foundation for the component’s creation and
+// termination process. A component can be either a receiver, exporter,
+// processor, or an extension.
+package component // import "go.opentelemetry.io/collector/component"
+>>>>>>> upstream/main:component/doc.go

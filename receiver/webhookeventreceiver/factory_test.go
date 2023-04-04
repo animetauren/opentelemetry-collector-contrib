@@ -12,4 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/webhookeventreceiver/factory_test.go
 package webhookeventreceiver
+=======
+// Package otlpreceiver receives data in OTLP format.
+package otlpreceiver // import "go.opentelemetry.io/collector/receiver/otlpreceiver"
+>>>>>>> upstream/main:receiver/otlpreceiver/doc.go

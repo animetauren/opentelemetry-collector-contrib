@@ -20,10 +20,14 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"go.opentelemetry.io/collector/component/componenttest"
+<<<<<<< HEAD:receiver/lokireceiver/factory_test.go
 	"go.opentelemetry.io/collector/config/configgrpc"
 	"go.opentelemetry.io/collector/config/confignet"
 	"go.opentelemetry.io/collector/consumer/consumertest"
 	"go.opentelemetry.io/collector/receiver/receivertest"
+=======
+	"go.opentelemetry.io/collector/processor/processortest"
+>>>>>>> upstream/main:processor/batchprocessor/factory_test.go
 )
 
 func TestCreateDefaultConfig(t *testing.T) {
@@ -36,6 +40,7 @@ func TestCreateDefaultConfig(t *testing.T) {
 func TestCreateReceiver(t *testing.T) {
 	factory := NewFactory()
 	cfg := factory.CreateDefaultConfig()
+<<<<<<< HEAD:receiver/lokireceiver/factory_test.go
 	cfg.(*Config).Protocols.GRPC = &configgrpc.GRPCServerSettings{
 		NetAddr: confignet.NetAddr{
 			Endpoint:  defaultGRPCBindEndpoint,
@@ -46,4 +51,18 @@ func TestCreateReceiver(t *testing.T) {
 	receiver, err := factory.CreateLogsReceiver(context.Background(), set, cfg, consumertest.NewNop())
 	assert.NoError(t, err, "receiver creation failed")
 	assert.NotNil(t, receiver, "receiver creation failed")
+=======
+	creationSet := processortest.NewNopCreateSettings()
+	tp, err := factory.CreateTracesProcessor(context.Background(), creationSet, cfg, nil)
+	assert.NotNil(t, tp)
+	assert.NoError(t, err, "cannot create trace processor")
+
+	mp, err := factory.CreateMetricsProcessor(context.Background(), creationSet, cfg, nil)
+	assert.NotNil(t, mp)
+	assert.NoError(t, err, "cannot create metric processor")
+
+	lp, err := factory.CreateLogsProcessor(context.Background(), creationSet, cfg, nil)
+	assert.NotNil(t, lp)
+	assert.NoError(t, err, "cannot create logs processor")
+>>>>>>> upstream/main:processor/batchprocessor/factory_test.go
 }

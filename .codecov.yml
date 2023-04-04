@@ -1,9 +1,15 @@
 codecov:
+<<<<<<< HEAD
   notify:
     require_ci_to_pass: yes
     # wait for unit and integration test builds.
     after_n_builds: 2
   strict_yaml_branch: main  # only use the latest copy on main branch
+=======
+  branch: main
+  # only use the latest copy on main branch
+  strict_yaml_branch: main
+>>>>>>> upstream/main
 
 coverage:
   precision: 2
@@ -20,4 +26,8 @@ coverage:
         target: 95%
 
 ignore:
+<<<<<<< HEAD
   - "*/**/third_party/**/*" # Ignore all 'third_party' directories and files within those directories recursively.
+=======
+  - "pdata/internal/data/protogen/**/*"
+>>>>>>> upstream/main

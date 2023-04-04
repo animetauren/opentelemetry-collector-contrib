@@ -12,4 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD:receiver/awsecscontainermetricsreceiver/doc.go
 package awsecscontainermetricsreceiver // import "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsecscontainermetricsreceiver"
+=======
+// Package configgrpc defines the  configuration settings to create
+// a gRPC client and server.
+package configgrpc // import "go.opentelemetry.io/collector/config/configgrpc"
+>>>>>>> upstream/main:config/configgrpc/doc.go
